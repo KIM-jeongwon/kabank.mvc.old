@@ -1,0 +1,13 @@
+@charset "UTF-8";
+#member_header{ height: 100px; text-align: center;}
+#member_wrapper{}
+#member_table{width: 80px; margin: 180px 0px 0px 0px;}
+#member_table tr td{ border: 1px solid;}
+#member_table tr { width: 30px;}
+#member_table tr th{ width: 3px;}
+#member_aside{ padding:20px; margin-left: 100px; width : 200px; height : 550px;
+ float: left; border: 1px solid grey; text-align: left;}
+#member_section{padding : 20px;border: 2px solid;}
+#member_button{ text-aligh : right;}
+#add_member_btn{width:100px ;font-size:15px; margin: 0 90%;}
+#member_input{width:50%; height:30%; margin:left;}

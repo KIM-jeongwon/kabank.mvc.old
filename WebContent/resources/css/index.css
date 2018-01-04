@@ -1,0 +1,8 @@
+@charset "UTF-8";
+#index_header {width: 100%;	 text-align: center;}
+#index_table {width: 150px; margin: 0 auto; margin-top: 200px;}
+#index_Login-box {	width: 100px; margin: 0 auto; }
+#index_input_id{width: 185px; height:50px;}
+#index_login_btn{width: 100px; height : 100px;}
+#index_input_pass{width: 185px; height : 50px;}
+
