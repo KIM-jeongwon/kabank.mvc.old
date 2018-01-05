@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kabank.mvc.constant.Path;
-import com.kabank.mvc.daoImpl.CommonServiceImpl;
 import com.kabank.mvc.service.CommonService;
+import com.kabank.mvc.serviceImpl.CommonServiceImpl;
 
 @WebServlet("/common/jdbc_test.do")
 public class CommonController extends HttpServlet {

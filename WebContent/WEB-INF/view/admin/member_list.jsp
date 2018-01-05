@@ -5,8 +5,8 @@
 <!doctype html>
 <html lang="en">
 <head >
-<link rel="stylesheet" href="../../css/common.css" />
-<link rel="stylesheet" href="../../css/member.css" />
+<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/common.css" />
+<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/member.css" />
 	<meta charset="UTF-8" />
 	<title >Document</title>
 </head>
@@ -52,6 +52,6 @@
 </table>
 </section>
 <%@ include file = "../common/footer.jsp" %>
-<script src ="../../js/admin/member_list.js"></script>
+<script ></script>
 </body>
 </html>

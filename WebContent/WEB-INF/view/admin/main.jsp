@@ -2,8 +2,8 @@
 <!doctype html>
 <html lang="en">
 <head >
-<link rel="stylesheet" href="../../css/common.css" />
-<link rel="stylesheet" href="../../css/admin.css" />
+<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/common.css" />
+<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/admin.css" />
 
 	<meta charset="UTF-8" />
 	<title >Document</title>
@@ -23,18 +23,42 @@
 	<td id="admin_table td">
 	<button id="go_create_link" style = "width:100%; height:100%;">테이블생성</button>
 	</td>
-	<td > 테이블 생성</td>
-	<td > 테이블 생성 </td>
+	<td >준비중</td>
+	<td >준비중</td>
 </tr>
 <tr >
-	<td >테이블 생성</td>
-	<td >테이블 생성</td>
-	<td > 테이블 생성</td>
+	<td >준비중</td>
+	<td >준비중</td>
+	<td >테이블 생성<br/>
+		<form id = "table_form" action="<%=application.getContextPath()%>/admin/create_table.do">
+		<select name="whatitis" id="">
+			<option value="member">회원 테이블</option>
+			<option value="attend">출석 테이블</option>
+		</select>
+		<input type="text" placeholder="생성할 테이블 명"/><br/>
+		 <button id = "create_btn">생성</button>
+		</form>
+		</td>
 </tr>	
 </table>
 </section>
 </div>
 <%@ include file = "../common/footer.jsp" %>
-<script src ="../../js/admin/main.js"></script>
+<script>
+	/*  document.querySelector('#go_create_link').addEventListener("click",
+			function (){
+		alert("click");
+		location href = "${pageContext.request.contextPath}/admin/member _list.do";
+	} ,false);
+	  */
+var aa = document.querySelector('#create_btn').addEventListener("click",create,false);
+
+	  function create(){
+			alert("click");
+			document.querySelector('#table_form').submit();
+}
+
+	 
+</script>
 </body>
 </html>

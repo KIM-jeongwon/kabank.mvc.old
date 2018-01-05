@@ -17,18 +17,18 @@
 <table id ="index_table">
 		<tr>
 			<td colspan="5">
-				<form action="burgerking/main.jsp">
+				<form id="login_form" action="${pageContext.request.contextPath}/member/auth.do">
 					<table >
 						<tr id="index_Login_box">
 							<td >
-							<input  id="index_input_id"  type="text" placeholder="ID 입력" />
+							<input  id="index_input_id" name="id" type="text" placeholder="ID 입력" />
 							</td>
 							<td rowspan="2">
-							<button id ="index_login_btn">로그인</button>
+							<input type="submit" id="index_login_btn" value=로그인 />
 							</td>
 						</tr>
 						<tr id="index_Login_box">
-							<td><input id="index_input_pass" type="text" placeholder="PASSWORD 입력" />
+							<td><input id="index_input_pass" name = "pass" type="text" placeholder="PASSWORD 입력" />
 							</td>
 						</tr>
 					</table>
@@ -54,8 +54,17 @@ function jdbc(){
 	alert('click');
 	location.href="${pageContext.request.contextPath}/common/jdbc_test.do"
 }
+var indexLoginBtn = document.querySelector('#index_login_btn').addEventListener("click",login,false);
 
-
+function login(){
+	alert('click');
+	document.querySelector('#login_form').submit();
+}
+var goAdmin = document.querySelector('#go_admin_link').addEventListener("click",admin,false);
+function admin(){
+	alert('click');
+	location.href="${pageContext.request.contextPath}/admin/main.do"
+}
 </script>
 </body>
 </html>
