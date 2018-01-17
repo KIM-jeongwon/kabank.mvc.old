@@ -1,18 +1,23 @@
 package com.kabank.mvc.daoImpl;
 
-import com.kabank.mvc.constant.CommonSQL;
 import com.kabank.mvc.dao.CommonDAO;
+import com.kabank.mvc.enums.DMLEnum;
+import com.kabank.mvc.enums.OracleEnum;
+import com.kabank.mvc.enums.TnameEnum;
+import com.kabank.mvc.enums.Vendor;
+import com.kabank.mvc.factory.DatabaseFactory;
+
 import java.sql.*;
 public class CommonDAOImpl implements CommonDAO{
 		
 	@Override
 	public String selectTableCount() {
 		String count = "";
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","bitcamp","bitcamp");
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(CommonSQL.getWhere(" member")); 
+		try {	
+			ResultSet rs =
+					DatabaseFactory.create(Vendor.ORACLE)
+					.getConnection().createStatement().executeQuery(
+					DMLEnum.COUNT.toString()+TnameEnum.MEMBER);
 			while(rs.next()){
 				count = rs.getString("count");
 			}

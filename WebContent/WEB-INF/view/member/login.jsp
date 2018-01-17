@@ -1,12 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 	<%@ include file = "../common/header.jsp" %>
-<!doctype html>
-<html lang="en">
-<head>
-	<link rel="shortcut icon" <%=application.getContextPath()%> href="../img/ee.ico" />
-	<link rel="stylesheet"  href="<%=application.getContextPath()%>/resources/css/index.css" />
-	<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/common.css" />
-</head>
 	<body>
 		<div id="wrapper">
 			<header id="index_header">
@@ -17,19 +10,21 @@
 <table id ="index_table">
 		<tr>
 			<td colspan="5">
-				<form id="login_form" action="${pageContext.request.contextPath}/member/auth.do">
+			<form id="login_form" action="<%=application.getContextPath()%>/member.do">
 					<table >
 						<tr id="index_Login_box">
 							<td >
 							<input  id="index_input_id" name="id" type="text" placeholder="ID 입력" />
 							</td>
 							<td rowspan="2">
-							<input type="submit" id="index_login_btn" value=로그인 />
+							<input type="submit" id="index_login_btn" value="로그인" />
 							</td>
 						</tr>
 						<tr id="index_Login_box">
 							<td><input id="index_input_pass" name = "pass" type="text" placeholder="PASSWORD 입력" />
-							</td>
+							<input type="hidden" name="cmd" value="login"/>
+							<input type="hidden" name="page" value="mypage" />
+						</td>
 						</tr>
 					</table>
 				</form>
@@ -46,7 +41,7 @@
 <script>
 document.querySelector('#go_join_link').addEventListener("click",
 		function goJoin(){
-			location.href= "${pageContext.request.contextPath}/member/join.do"
+				location.href = "${ctx}/member.do?cmd=move&page=join";
 },false);
 var jdbcLink = document.querySelector('#go_jdbc_link').addEventListener("click",jdbc,false);
 

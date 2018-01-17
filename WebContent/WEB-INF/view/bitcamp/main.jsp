@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding ="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
-<!doctype html>
-<html lang="en">
-<%@ include file = "../common/head.jsp" %>
-<link rel="stylesheet" href="../../css/bitcamp.css" />
-<link rel="stylesheet" href="../../css/common.css" />
+<link rel="stylesheet" href=" <%=application.getContextPath()%>/resources/css/bitcamp.css" />
 <body>
 <div id ="wrapper">
 <a id ="header" href="#">HOME</a>
@@ -16,7 +12,37 @@
 	<h1>	비트 캠프 메인 </h1>
 	
 </article>
-<form action="result.jsp">
+<form action="change_form" action="${ctx}/bitcamp.do">
+<article>
+</article>
+<table id = "mypage_table">
+<tr id ="mypage_table tr">
+	<td rowspan="4"><img src="<%=application.getContextPath()%>/resources/img/images.jpg"
+							id = "img" alt="" />  </td>
+	<td class="title">ID</td>
+	<td>${sessionScope.member.id}</td>
+	<td>PW</td>
+	<td>${sessionScope.member.pass}</td>
+</tr>
+<tr>
+	<td class="title">NAME</td>
+	<td>${sessionScope.member.name}</td>
+	<td>GENDER</td>
+	<td>${sessionScope.member.ssn}</td>
+</tr>
+<tr>
+	<td class="title">BIRTH</td>
+	<td>${sessionScope.member.ssn}</td>
+	<td>E-MAIL</td>
+	<td>${sessionScope.member.email}</td>
+</tr>
+<tr>
+	<td class="title">PHONE</td>
+	<td>${sessionScope.member.phone}</td>
+	<td>ADDRESS</td>
+	<td>${sessionScope.member.addr}</td>
+</tr>
+</table>
 <table id="bitcamp_table">
 <tr>
 	<th>요일</th>
@@ -70,13 +96,15 @@
 </tr>
 
 </table>
-<button id ="bitcamp_check_btn">추가</button>
 </form>
+
 </section>
 
 </div>
 <%@ include file = "../common/footer.jsp" %>
 	</body>
-	<script src="../../js/bitcamp/bitcamp.js"></script>
+	<script>
+
+	</script>
 	</html>
 

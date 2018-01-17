@@ -1,15 +1,26 @@
 package com.kabank.mvc.daoImpl;
 
-import com.kabank.mvc.constant.Adminsql;
-import com.kabank.mvc.constant.DBMS;
 import com.kabank.mvc.dao.AdminDAO;
+import com.kabank.mvc.enums.OracleEnum;
+import com.kabank.mvc.enums.Vendor;
+import com.kabank.mvc.factory.DatabaseFactory;
 import com.kabank.mvc.kabankBean.MemberBean;
-
 import java.sql.*;
-import java.util.*;
+import java.util.Random;
 public class AdminDAOImpl implements AdminDAO{
 	MemberBean m;
 
+	@Override
+	public void makeTable(String sql) {
+		try {
+		System.out.println("========:" + sql);
+			DatabaseFactory.create(Vendor.ORACLE).getConnection().createStatement().executeUpdate(sql);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
 /*	@Override
 	public void memberTable() {*/
 /*		try {
@@ -42,24 +53,6 @@ public class AdminDAOImpl implements AdminDAO{
 		}
 	}*/
 
-	@Override
-	public void makeTable(String sql) {
-		try {
-			Class.forName(DBMS.ORACLE_DRIVER);
-			Connection conn = DriverManager.getConnection(
-					DBMS.ORACLE_CONNECTION_URL,
-					DBMS.ORACLE_USERNAME,
-					DBMS.ORACLE_PASSWORD);
-			Statement stmt = conn.createStatement();
-			 stmt.executeUpdate(sql);
-		} catch (Exception e) {
-				e.printStackTrace();
-		}
-	}
-
-
-
-	}
 
 
 

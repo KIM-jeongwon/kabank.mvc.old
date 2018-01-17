@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding ="UTF-8"%><html lang="en">
-	<!doctype html>
-<html lang="en">
-	<%@ include file = "../common/head.jsp" %>
 	<script src ="../../js/burgerking/burgerking.js"></script>
 	<body>
 	<div id ="wrapper">

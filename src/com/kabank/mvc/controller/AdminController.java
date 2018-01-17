@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kabank.mvc.constant.Path;
+import com.kabank.mvc.enums.PathEnum;
 import com.kabank.mvc.service.AdminService;
 import com.kabank.mvc.serviceImpl.AdminServiceImpl;
 
 
-@WebServlet({"/admin/main.do" , "/admin/create_table.do"})
+@WebServlet({"/admin/main.do" , "/admin/create_table.do", })
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -21,17 +21,16 @@ public class AdminController extends HttpServlet {
 		AdminService service = new AdminServiceImpl();
 		String action = request.getServletPath();
 		System.out.println("서블릿패스가 지나간길 :"+ action);
-		String dest = request.getServletPath().split(Path.SEPARATOR)[2].split(Path.DOT)[0];
-		String dir = request.getServletPath().split(Path.SEPARATOR)[1];
-		System.out.println("실제 지나간 경로 : "+Path.VIEW+dir+Path.SEPARATOR+dest+Path.EXTENSION);
+		String dest = request.getServletPath().split(PathEnum.SEPARATOR.getValue())[2].split(PathEnum.DOT.getValue())[0];
+		String dir = request.getServletPath().split(PathEnum.SEPARATOR.getValue())[1];
 		switch(dest) {
 		case "main":
 				dir = "admin";
 				dest = "main";
 				break;
 		case "create_table" : 
-				service.makeTable(request.getParameter("whatitis"));
-				dir = "admin";
+				service.makeTable(request.getParameter("table_name"));
+				dir = "kakao";
 				dest = "main";
 			break;
 		default : 
@@ -40,7 +39,7 @@ public class AdminController extends HttpServlet {
 		// dest = main
 		}
 		request
-		.getRequestDispatcher(Path.VIEW+dir+Path.SEPARATOR+dest+Path.EXTENSION)
+		.getRequestDispatcher(PathEnum.VIEW.getValue()+dir+PathEnum.SEPARATOR.getValue()+dest+PathEnum.EXTENSION.getValue())
 		.forward(request, response);	
 		}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

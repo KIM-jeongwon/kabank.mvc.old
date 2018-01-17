@@ -1,16 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="en">
 <head>
 </head>
-	<%@ include file="../common/head.jsp"%>
 		<header  id="join_header">
 					<h1>회원 가입 </h1>
 		</header>
 <body>
 		<section>
 	<article>
-	<form id="join_form" action="<%=application.getContextPath()%>/member/login.do">
+	<form id="join_form" name = "add" action="${ctx}/member.do">
 <table id ="join_table">
  <tr >
  	<td>아이디 </td>
@@ -63,27 +60,27 @@
  	<tr>
  	<td>전화번호</td>
  	<td id="join_table_can">
- 	010 -
- 	<input pattern="[0-9]{4}" type="tel" name= "phoneNum" placeholder ="앞자리 번호"/> -
- 	<input pattern="[0-9]{4}" type="tel" name= "phoneNum" placeholder ="뒷자리 번호"/></td>
+ 
+ 	<input id = "first" pattern="[0-9]{4}" type="tel" name= "phone1" placeholder ="앞자리 번호"/> -
+ 	<input id = "second" pattern="[0-9]{4}" type="tel" name= "phone2" placeholder ="뒷자리 번호"/></td>
  </tr>
 	<tr>
 		<td colspan="2" >
-		<input type="submit" value = "확인" id = "join_confirm_btn"/>
+		    <button id="join_confirm_btn"> 확인 </button> 
 		</td>
 	</tr>
  			</table>
+   			 <input type="hidden" name="cmd" value="add" />
  		</form>
 	</article>
 </section>
 <%@ include file = "../common/footer.jsp"%>
 <script>
-	var joinConfirmBtn = document.querySelector('#join_confirm_btn').addEventListener("click",join,false);
-
-	function join(){
+	var joinConfirmBtn = document.querySelector('#join_confirm_btn').addEventListener('click',function (){
 		alert('클릭');
 		document.querySelector('join_form').submit();
-}
+},false);
+
 </script>
 </body>
 </html>

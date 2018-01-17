@@ -1,14 +1,24 @@
 package com.kabank.mvc.serviceImpl;
 
-import java.util.HashMap;
-import java.util.Map;
 
+import java.util.Random;
+
+import com.kabank.mvc.daoImpl.BankDAOImpl;
 import com.kabank.mvc.service.BankService;
 
 public class BankServiceImpl implements BankService{
-	private Map<String,String> mapMenu;
+	public static BankService getInstance() {
+		return new BankServiceImpl();
+	}
+	private BankServiceImpl() {}
 
-	public BankServiceImpl() {
-		mapMenu = new HashMap<String,String>();
-		}
+	@Override
+	public void create() {
+		
+		System.out.println("뱅크 서비ㅅ ㅡ임플=============================");
+				String r = String.valueOf((int)(Math.random()*8999+1000)+"-"+(int)(Math.random()*8999+1000)+"-"+(int)(Math.random()*8999+1000));
+
+		BankDAOImpl.getInstance().creat(r);
+		
+	}
 }

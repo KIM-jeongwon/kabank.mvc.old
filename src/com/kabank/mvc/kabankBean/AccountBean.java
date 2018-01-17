@@ -1,7 +1,17 @@
 package com.kabank.mvc.kabankBean;
 
+
 public class AccountBean {
-private String accountNum,money;
+private String accountNum,money,customerNum;
+
+
+public String getCustomerNum() {
+	return customerNum;
+}
+
+public void setCustomerNum(String customerNum) {
+	this.customerNum = customerNum;
+}
 
 public String getAccountNum() {
 	return accountNum;
